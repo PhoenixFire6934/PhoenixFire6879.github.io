@@ -1,36 +1,33 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
-	<title>BS pop-up maker</title>
-</head>
-
-<body class="body" style ="background-color: black; color: white; font-size: 19px; padding: 20px;">
-	<div class="content" style="font-family: Tahoma, sans-serif; max-width: 500px; margin: auto;">
-		<p>Input your settings below</p>
-		<form>
-			<label for="popup">Pop-up text:</label>
-			<br>
-			<input type="text" id="popup">
-			<br>
-			<label for="url">Display URL:</label>
-			<br>
-			<input type="text" id="url">
-			<br>
-			<br>
-			<input type="button" value="Open Brawl Stars" onclick="open_bs()"> </form>
-		<p style = "font-size: 15px">Made by PhoenixFire#6879</p>
-		<p style = "font-size: 15px">Visit my <a href = "https://github.com/PhoenixFire6879" style = "color:pink">GitHub page</a></p>
-	</div>
-	<script>
-	function open_bs() {
-		var popup_title = document.getElementById("popup").value;
-		var page        = document.getElementById("url").value;
-		url = "brawlstars://webview?page=" + page + "&popup_title=" + popup_title;
-		location.href   = url;
-	}
-	</script>
-</body>
-
+  <head>
+    <meta name="viewport" content="width=device-width, heigth = device-hight, initial-scale=1, shrink-to-fit=no"> 
+    <title>BS Pop-up Maker</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="main-block">
+      <h1>Pop-up Maker</h1>
+      <form class="btn-block">
+        <h3>Input your settings below</h3>
+        <input type="text" id="popup" placeholder="Pop-up text" required/>
+        <input type="text" id="url"   placeholder="Display URL" required/>
+        <div class="btn-block">
+          <button type="submit" onclick="open_bs()">Open Brawl Stars</button>
+        </div>
+        <br><p style = "font-size: 15px">Made by PhoenixFire#6879</p>
+        <p style = "font-size: 15px">Visit my <a href = "https://github.com/PhoenixFire6879" style = "color:pink">GitHub page</a></p>
+      </form>
+    </div>
+    <script>
+      function open_bs() {
+        var popup_title = document.getElementById("popup").value;
+        var page        = document.getElementById("url").value;
+        url = "brawlstars://webview?page=" + page + "&popup_title=" + popup_title;
+        location.href   = url;
+      }
+  </script>
+  </body>
 </html>
