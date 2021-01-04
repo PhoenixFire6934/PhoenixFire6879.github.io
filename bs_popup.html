@@ -12,8 +12,19 @@
             <h1>Pop-up Maker</h1>
             <form class="btn-block">
                 <h3>Input your settings below</h3>
-                <input type="text" id="popup" placeholder="Pop-up text" required />
-                <input type="text" id="url" placeholder="Display URL" required />
+                <br />
+
+                <select id="mode" onchange="display()">
+                    <option id="custom">Custom</option>
+                    <option id="random">Random</option>
+                </select>
+
+                <div id="placeholder" style="color: red; font-size: 15px;"><br /></div>
+
+                <div id="div">
+                    <input type="text" id="popup" placeholder="Pop-up text" required />
+                    <input type="text" id="url" placeholder="Display URL" required />
+                </div>
                 <div class="btn-block">
                     <button type="submit" onclick="open_bs()">Open Brawl Stars</button>
                 </div>
@@ -23,15 +34,57 @@
             </form>
         </div>
         <script>
-            function open_bs() {
-                var popup_title = document.getElementById("popup").value;
-                var page = document.getElementById("url").value;
+            function display() {
+                var x = document.getElementById("div");
+                var y = document.getElementById("placeholder");
 
-                if (popup_title && page) {
-                    url = "brawlstars://webview?page=" + page + "&popup_title=" + popup_title;
-                    location.href = url;
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                    y.innerHTML = "";
                 } else {
-                    console.log("One or more fields are empty!");
+                    x.style.display = "none";
+                    y.innerHTML = "This is a beta feature and it's limited to only a few URLs";
+                }
+            }
+
+            function random() {
+                var urls = new Array(
+                    "https://www.google.com",
+                    "https://www.yahoo.com",
+                    "https://www.facebook.com",
+                    "https://www.netflix.com",
+                    "https://www.google.com/maps",
+                    "https://www.youtube.com",
+                    "https://discordapp.com",
+                    "http://rebrawl.gg",
+                    "https://make.supercell.com",
+                    "http://twitter.com",
+                    "https://github.com",
+                    "https://github.com/PhoenixFire6879/Classic-Brawl"
+                );
+                var popup_title = "Random-URL";
+                page = urls[Math.floor(urls.length * Math.random())];
+                console.log(page);
+
+                url = "brawlstars://webview?page=" + page + "&popup_title=" + popup_title;
+                location.href = url;
+            }
+
+            function open_bs() {
+                var x = document.getElementById("div");
+
+                if (x.style.display === "none") {
+                    random();
+                } else {
+                    var popup_title = document.getElementById("popup").value;
+                    var page = document.getElementById("url").value;
+
+                    if (popup_title && page) {
+                        url = "brawlstars://webview?page=" + page + "&popup_title=" + popup_title;
+                        location.href = url;
+                    } else {
+                        console.log("One or more fields are empty!");
+                    }
                 }
             }
         </script>
