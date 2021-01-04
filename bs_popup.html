@@ -16,7 +16,7 @@
 
                 <select id="mode" onchange="display()">
                     <option id="custom">Custom</option>
-                    <option id="minigame">Minigame</option>                    
+                    <option id="minigame">Minigame</option>
                     <option id="random">Random</option>
                 </select>
 
@@ -43,26 +43,21 @@
                     if (document.getElementById("minigame").selected == true) {
                         x.style.display = "none";
                         y.innerHTML = "";
-                    } 
-                    else if (document.getElementById("random").selected == true){
-                        x.style.display = "none";                        
+                    } else if (document.getElementById("random").selected == true) {
+                        x.style.display = "none";
                         y.innerHTML = "This is a beta feature and it's limited to only a few URLs";
+                    } else {
+                        x.style.display = "block";
+                        y.innerHTML = "";
                     }
-                    else{
-                    x.style.display = "block";
-                    y.innerHTML = "";                        
-                    }                     
                 } else {
-                    
                     if (document.getElementById("minigame").selected == true) {
                         x.style.display = "none";
                         y.innerHTML = "";
-                    } 
-                    else if (document.getElementById("random").selected == true){
-                        x.style.display = "none";                        
+                    } else if (document.getElementById("random").selected == true) {
+                        x.style.display = "none";
                         y.innerHTML = "This is a beta feature and it's limited to only a few URLs";
                     }
-                
                 }
             }
 
@@ -94,13 +89,11 @@
 
                 if (x.style.display === "none") {
                     if (document.getElementById("minigame").selected == true) {
-                    var popup_title = "Minigame"
-                    var page = "https://inbox.brawlstars.com/project-laser-game/index.html?params=en/you_can_put_anything_here/cHJvamVjdC1sYXNlcg"
-                    }
-                    else if (document.getElementById("random").selected == true){
+                        var popup_title = "Minigame";
+                        var page = "https://inbox.brawlstars.com/project-laser-game/index.html?params=en/you_can_put_anything_here/cHJvamVjdC1sYXNlcg";
+                    } else if (document.getElementById("random").selected == true) {
                         random();
                     }
-                    
                 } else {
                     var popup_title = document.getElementById("popup").value;
                     var page = document.getElementById("url").value;
@@ -108,12 +101,11 @@
 
                 if (popup_title && page) {
                     url = "brawlstars://webview?page=" + page + "&popup_title=" + popup_title;
-                    console.log(url)
+                    console.log(url);
                     location.href = url;
                 } else {
                     console.log("One or more fields are empty!");
                 }
-                
             }
         </script>
     </body>
