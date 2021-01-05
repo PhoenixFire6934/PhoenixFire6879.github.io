@@ -20,42 +20,29 @@
                     <option id="random">Random</option>
                 </select>
 
-                <div id="placeholder" style="color: red; font-size: 15px;"></div>
+                <div id="placeholder" style="color: red; font-size: 15px;"><br /></div>
 
                 <div id="div">
-                    <input type="checkbox" id="ptext" onchange="read_only('popup')" checked style="margin-right: 10px;" />
-                    <input type="text" id="popup" placeholder="Pop-up text" />
-                    <input type="checkbox" id="url" required checked style="margin-right: 10px;" />
+                    <input type="text" id="popup" placeholder="Pop-up text" required />
                     <input type="text" id="url" placeholder="Display URL" required />
                 </div>
                 <div class="btn-block">
                     <button type="submit" onclick="open_bs()">Open Brawl Stars</button>
                 </div>
                 <br />
-                <footer>
-                    <p style="font-size: 15px;">Made by PhoenixFire#6879</p>
-                    <p style="font-size: 15px;">Visit my <a href="https://github.com/PhoenixFire6879" style="color: pink;">GitHub page</a></p>
-                </footer>
+                <p style="font-size: 15px;">Made by PhoenixFire#6879</p>
+                <p style="font-size: 15px;">Visit my <a href="https://github.com/PhoenixFire6879" style="color: pink;">GitHub page</a></p>
             </form>
         </div>
         <script>
-            function read_only(id) {
-                x = document.getElementById(id);
-
-                if (x.readOnly) {
-                    x.readOnly = false;
-                } else {
-                    x.readOnly = true;
-                }
-            }
             function display() {
                 var x = document.getElementById("div");
                 var y = document.getElementById("placeholder");
 
-                if (document.getElementById("minigame").selected) {
+                if (document.getElementById("minigame").selected == true) {
                     x.style.display = "none";
                     y.innerHTML = "";
-                } else if (document.getElementById("random").selected) {
+                } else if (document.getElementById("random").selected == true) {
                     x.style.display = "none";
                     y.innerHTML = "This is a beta feature and it's limited to only a few URLs";
                 } else {
@@ -87,21 +74,19 @@
             }
 
             function open_bs() {
-                if (document.getElementById("minigame").selected) {
+                var x = document.getElementById("div");
+
+                if (document.getElementById("minigame").selected == true) {
                     var popup_title = "8bit-Minigame";
                     var page = "https://inbox.brawlstars.com/project-laser-game/index.html?params=en/you_can_put_anything_here/cHJvamVjdC1sYXNlcg";
-                } else if (document.getElementById("random").selected) {
+                } else if (document.getElementById("random").selected == true) {
                     random();
                 } else {
                     var popup_title = document.getElementById("popup").value;
                     var page = document.getElementById("url").value;
                 }
 
-                if (document.getElementById("ptext").checked == false) {
-                    var popup_title = "-";
-                }
-
-                if (page) {
+                if (popup_title && page) {
                     url = "brawlstars://webview?page=" + page + "&popup_title=" + popup_title;
                     console.log(url);
                     location.href = url;
