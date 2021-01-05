@@ -51,15 +51,6 @@
                 }
             }
 
-            function isMobile() {
-                var x = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-                if (x) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-
             function random() {
                 var urls = new Array(
                     "https://www.google.com",
@@ -84,11 +75,6 @@
 
             function open_bs() {
                 var x = document.getElementById("div");
-                var y = document.getElementById("placeholder");
-
-                if (isMobile) {
-                    y.innerHTML = "Warning: This tool will only work on a mobile device";
-                }
 
                 if (document.getElementById("minigame").selected == true) {
                     var popup_title = "8bit-Minigame";
